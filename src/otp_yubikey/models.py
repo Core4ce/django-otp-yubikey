@@ -7,7 +7,7 @@ from struct import pack
 import six
 
 from django.db import models
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 
 from django_otp.models import Device
 from django_otp.util import hex_validator, random_hex
@@ -17,7 +17,7 @@ from yubiotp.otp import decode_otp
 
 
 def default_id():
-    return force_text(random_hex(6))
+    return force_str(random_hex(6))
 
 
 def id_validator(value):
@@ -25,7 +25,7 @@ def id_validator(value):
 
 
 def default_key():
-    return force_text(random_hex(16))
+    return force_str(random_hex(16))
 
 
 def key_validator(value):
